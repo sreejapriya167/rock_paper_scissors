@@ -1,45 +1,42 @@
 import random
 
 rock = '''
-     ______
----'      ____)
-         (_____)
-         (_____)
-        (____)
----.__(__)
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
 '''
 
 paper = '''
-     _____
----'   ____) _
-          ______ ) 
-          ________)
+    _______
+---'   ____)____
+          ______)
+          _______)
          _______)
----.______)
+---.__________)
 '''
 
 scissors = '''
-      _____
----'    ____) ____
-          _________) 
-           __________)
-         (____)
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
 ---.__(___)
 '''
 choices= [rock,paper,scissors]
-rules =[[ rock,scissors],
-        [ scissors,paper],
-        [ paper,rock]]
-user_ch = input("Select one : 0 for rock, 1 for paper ,2 for scissors ? ").lower()
-computer_ch= random.choice(choices)
-if user_ch==0:
-    print(f"User chose:{rock}")
-elif user_ch ==1:
-    print(f"User chose: {paper}")
-else:
-    print(f"User chose: {scissors}")
+rules =[[ 0,2],
+        [ 2, 1],
+        [ 1, 0]]
+user_ch = int(input("Select one : 0 for rock, 1 for paper ,2 for scissors ? "))
+computer_ch= random.randint(0,2)
 
-print(f"Compute chose:{computer_ch}")
+
+print(f"User chose:\n {choices[user_ch]}")
+
+print(f"Compute chose:{choices[computer_ch]}")
 if user_ch==computer_ch:
     print("--------Its a draw-------".upper())
 elif [user_ch,computer_ch] in rules:
